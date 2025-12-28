@@ -14,12 +14,22 @@
       <h1>Todo Task</h1>
     </div>
     <div style="display: flex;gap: 30px;padding: 15px;">
-      <button class="add-todo-btn">Add Todo <img src="./src/images/plus.png" alt=""></button>
+      <button class="add-todo-btn" id="add">Add Todo <img src="./src/images/plus.png" alt=""></button>
       <button class="all-todo-btn">All Todos <img src="./src/images/menu.png" alt=""></button>
     </div>
 
     <div class="todos-container" id="todos" style="padding: 15px;">
-      
+
+    </div>
+
+    <div class="add-todo" id="todo-add" style="padding: 15px; color: white;">
+      <h1 style="text-align: center; padding-bottom: 20px;">Add your new task</h1>
+      <form style="display: flex; gap: 10px;">
+        <input style="width: 100%; padding: 10px; font-size: 17px;border: 1px solid white;border-radius: 10px;" placeholder="Type your Task" type="text"
+          id="new-todo">
+        <button type="submit" id="add-btn" style="padding: 0 30px;border: 1px solid white; border-radius: 8px;">Add</button>
+      </form>
+      <button style="padding: 10px 30px; display: flex;justify-self: center;margin-top: 10px; border-radius: 8px;border: 1px solid white;">Back</button>
     </div>
   </section>
 
