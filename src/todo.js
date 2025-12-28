@@ -10,14 +10,28 @@ let todos = [
 ];
 
 
+
 const todosContainer = document.getElementById('todos')
 const input = document.getElementById("new-todo");
+const allTodoContainer = document.getElementById("all-todo-container")
 
+let view = 'home'
 
 function renderTodos() {
   todosContainer.innerHTML = ''
 
-  todos.forEach((todo, idx) => {
+
+  let displayTodos;
+
+  if (view === 'all') {
+    displayTodos = todos;
+  }
+  else {
+    displayTodos = todos.slice(0,5);
+  }
+
+
+  displayTodos.forEach((todo, idx) => {
 
     const div = document.createElement("div")
     div.className = 'singleTodo'
@@ -28,10 +42,10 @@ function renderTodos() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.completed;
-    checkbox.style.cursor='pointer'
+    checkbox.style.cursor = 'pointer'
 
 
-    checkbox.addEventListener('change',()=>{
+    checkbox.addEventListener('change', () => {
       todo.completed = !todo.completed
       renderTodos()
     })
@@ -39,17 +53,17 @@ function renderTodos() {
     const taskName = document.createElement("p");
     taskName.textContent = todo.name;
 
-    if(todo.completed){
-      taskName.style.textDecoration='line-through'
-       taskName.style.textDecorationColor = "#08ee32ff";
+    if (todo.completed) {
+      taskName.style.textDecoration = 'line-through'
+      taskName.style.textDecorationColor = "#08ee32ff";
     }
 
     const deleteBtn = document.createElement("img")
     deleteBtn.src = "./src/images/trash.png";
-    deleteBtn.style.cursor='pointer'
+    deleteBtn.style.cursor = 'pointer'
 
-    deleteBtn.addEventListener("click",()=>{
-      todos.splice(idx ,1)
+    deleteBtn.addEventListener("click", () => {
+      todos.splice(idx, 1)
       renderTodos()
     });
 
@@ -77,13 +91,22 @@ document.getElementById("add-btn").addEventListener("click", (e) => {
     name: inputValue,
     completed: false
   }
-  todos.push(newTodo)
+  todos.unshift(newTodo)
   input.value = ''
   renderTodos()
 })
 
 
 renderTodos()
+
+
+
+
+
+
+// document.getElementById("todo-count").innerText = todos.length
+
+
 
 
 
@@ -98,13 +121,25 @@ function show(id) {
 }
 
 
-document.getElementById("add").addEventListener("click", () => {
-  hide('todos')
-  show("todo-add")
+
+document.getElementById("home").addEventListener("click", () => {
+  show("todos")
+  hide('todo-add')
+  view = 'home'
+  renderTodos()
 })
 
 
-document.getElementById("back").addEventListener("click",()=>{
-  hide("todo-add")
-  show("todos")
+document.getElementById("add").addEventListener("click", () => {
+  show("todo-add")
+  hide('todos')
+  renderTodos()
+})
+
+
+document.getElementById("all-todos").addEventListener("click", () => {
+  view = 'all'
+  hide('todo-add')
+  show('todos')
+  renderTodos()
 })
