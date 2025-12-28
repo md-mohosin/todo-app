@@ -1,5 +1,5 @@
 let todos = [
-  { name: "Learn JavaScript basics", completed: false },
+  { name: "Learn JavaScript basics", completed: true },
   { name: "Practice DOM manipulation", completed: false },
   { name: "Build a To-Do app", completed: true },
   { name: "Understand render function", completed: false },
@@ -17,7 +17,7 @@ const input = document.getElementById("new-todo");
 function renderTodos() {
   todosContainer.innerHTML = ''
 
-  todos.forEach((todo, index) => {
+  todos.forEach((todo, idx) => {
 
     const div = document.createElement("div")
     div.className = 'singleTodo'
@@ -28,33 +28,41 @@ function renderTodos() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.completed;
+    checkbox.style.cursor='pointer'
 
-    const text = document.createElement("p");
-    text.textContent = todo.name;
+
+    checkbox.addEventListener('change',()=>{
+      todo.completed = !todo.completed
+      renderTodos()
+    })
+
+    const taskName = document.createElement("p");
+    taskName.textContent = todo.name;
+
+    if(todo.completed){
+      taskName.style.textDecoration='line-through'
+       taskName.style.textDecorationColor = "#08ee32ff";
+    }
+
+    const deleteBtn = document.createElement("img")
+    deleteBtn.src = "./src/images/trash.png";
+    deleteBtn.style.cursor='pointer'
+
+    deleteBtn.addEventListener("click",()=>{
+      todos.splice(idx ,1)
+      renderTodos()
+    });
 
     todoTitle.appendChild(checkbox)
-    todoTitle.appendChild(text)
+    todoTitle.appendChild(taskName)
 
     div.appendChild(todoTitle)
+    div.appendChild(deleteBtn)
 
     todosContainer.appendChild(div)
   })
 }
 
-
-
-
-function hide(id) {
-  document.getElementById(id).style.display = 'none'
-}
-function show(id) {
-  document.getElementById(id).style.display = 'block'
-}
-
-
-document.getElementById("add").addEventListener("click", () => {
-  hide('todos')
-})
 
 
 
@@ -74,4 +82,29 @@ document.getElementById("add-btn").addEventListener("click", (e) => {
   renderTodos()
 })
 
+
 renderTodos()
+
+
+
+
+
+
+function hide(id) {
+  document.getElementById(id).style.display = 'none'
+}
+function show(id) {
+  document.getElementById(id).style.display = 'block'
+}
+
+
+document.getElementById("add").addEventListener("click", () => {
+  hide('todos')
+  show("todo-add")
+})
+
+
+document.getElementById("back").addEventListener("click",()=>{
+  hide("todo-add")
+  show("todos")
+})

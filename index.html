@@ -22,14 +22,18 @@
 
     </div>
 
-    <div class="add-todo" id="todo-add" style="padding: 15px; color: white;">
+
+
+    <!-- SINGLE TODO ADD FORM -->
+    <div class="add-todo" id="todo-add" style="padding: 15px; color: white; display: none;">
       <h1 style="text-align: center; padding-bottom: 20px;">Add your new task</h1>
       <form style="display: flex; gap: 10px;">
-        <input style="width: 100%; padding: 10px; font-size: 17px;border: 1px solid white;border-radius: 10px;" placeholder="Type your Task" type="text"
+        <input style="width: 100%; padding: 15px; font-size: 17px;border: 1px solid white;border-radius: 10px;" placeholder="Type your Task" type="text"
           id="new-todo">
-        <button type="submit" id="add-btn" style="padding: 0 30px;border: 1px solid white; border-radius: 8px;">Add</button>
+        <button type="submit" id="add-btn" style="padding: 0 30px;border: 1px solid white; border-radius: 8px;cursor: pointer;">Add</button>
       </form>
-      <button style="padding: 10px 30px; display: flex;justify-self: center;margin-top: 10px; border-radius: 8px;border: 1px solid white;">Back</button>
+      <button id="back"
+       style="padding: 10px 30px; display: flex;justify-self: center;margin-top: 10px; border-radius: 8px;border: 1px solid white; cursor: pointer;">Back</button>
     </div>
   </section>
 
