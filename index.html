@@ -9,33 +9,35 @@
 </head>
 
 <body>
-  <section class="container">
-    <div class="title-container">
-      <p class="all">Todo Task <span id="all-task"></span></p>
-      <p class="complate">Complate <span id="complate"></span></p>
-      <button class="home-btn" id="home">Home <img src="./src/images/home.png" alt=""></button>
-      <button class="all-todos-btn" id="all-todos">All Todos <img src="./src/images/menu.png" alt=""></button>
-    </div>
-    <img class="add-ico" id="add" src="./src/images/plus.png" alt=""></button>
+  <div class="app">
+    <section class="container">
+      <div class="title-container">
+        <p class="all">Todo Task <span id="all-task"></span></p>
+        <p class="complate">Complate <span id="complate"></span></p>
+        <button class="home-btn" id="home">Home <img src="./src/images/home.png" alt=""></button>
+        <button class="all-todos-btn" id="all-todos">All Todos <img src="./src/images/menu.png" alt=""></button>
+      </div>
+      <img class="add-ico" id="add" src="./src/images/plus.png" alt=""></button>
 
 
 
-    <!-- HOME PAGE -->
-    <div class="todos-container" id="todos">
+      <!-- HOME PAGE -->
+      <div class="todos-container" id="todos">
 
-    </div>
+      </div>
 
 
 
-    <!-- SINGLE TODO ADD FORM -->
-    <div class="add-todo" id="todo-add">
-      <h1 class="task-add-title">Add your new task</h1>
-      <form class="add-task-form">
-        <input class="task-add-input" placeholder="Type your Task" type="text" id="new-todo">
-        <button class="btn-add" type="submit" id="add-btn">Add</button>
-      </form>
-    </div>
-  </section>
+      <!-- SINGLE TODO ADD FORM -->
+      <div class="add-todo" id="todo-add">
+        <h1 class="task-add-title">Add your new task</h1>
+        <form class="add-task-form">
+          <input class="task-add-input" placeholder="Type your Task" type="text" id="new-todo">
+          <button class="btn-add" type="submit" id="add-btn">Add</button>
+        </form>
+      </div>
+    </section>
+  </div>
 
 
   <script src="./src/todo.js"></script>
