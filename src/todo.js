@@ -36,6 +36,7 @@ function renderTodos() {
     const div = document.createElement("div")
     div.className = 'singleTodo'
 
+
     const todoTitle = document.createElement("div");
     todoTitle.className = "toto-title"
 
@@ -74,6 +75,12 @@ function renderTodos() {
     div.appendChild(deleteBtn)
 
     todosContainer.appendChild(div)
+
+
+    document.getElementById("all-task").innerText = todos.length
+
+const complateTask = todos.filter(complateTodo => complateTodo.completed === true)
+document.getElementById("complate").innerText = complateTask.length
   })
 }
 
@@ -98,18 +105,6 @@ document.getElementById("add-btn").addEventListener("click", (e) => {
 
 
 renderTodos()
-
-
-
-
-
-
-// document.getElementById("todo-count").innerText = todos.length
-
-
-
-
-
 
 
 
